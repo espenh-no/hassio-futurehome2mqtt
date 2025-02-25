@@ -21,12 +21,24 @@ class Client:
         self._debug: bool = os.environ.get('DEBUG')
         self._selected_devices_mode: str = os.environ.get('SELECTED_DEVICES_MODE')
         self._selected_devices: list = os.environ.get('SELECTED_DEVICES').split(',')
+        self._include_mode: bool = os.environ.get('INCLUDE_MODE')
+        self._include_shortcuts: bool = os.environ.get('INCLUDE_SHORTCUTS')
         self._topic_discover: str = "pt:j1/mt:rsp/rt:app/rn:homeassistant/ad:flow1"
 
         if self._debug.lower() == "true":
             self._debug = True
         else:
             self._debug = False
+
+        if self._include_mode.lower() == "true":
+            self._include_mode = True
+        else:
+            self._include_mode = False
+
+        if self._include_shortcuts.lower() == "true":
+            self._include_shortcuts = True
+        else:
+            self._include_shortcuts = False
 
         print('Connecting to: ' + self._server)
         print('Username: ', self._username)
@@ -35,6 +47,8 @@ class Client:
         print('Debug: ', self._debug)
         print('Selected devices mode: ', self._selected_devices_mode)
         print('Selected devices: ', self._selected_devices)
+        print('Include mode: ', self._include_mode)
+        print('Include shortcuts: ', self._include_shortcuts)
 
         self.do_connect()
 
@@ -100,7 +114,9 @@ class Client:
                 mqtt=self.client,
                 selected_devices_mode=self._selected_devices_mode,
                 selected_devices=self._selected_devices,
-                debug=self._debug
+                debug=self._debug,
+                include_mode=self._include_mode,
+                include_shortcuts=self._include_shortcuts
             )
         elif msg.topic == "homeassistant/status" and payload == "online":
             # Home Assistant was restarted - Push everything again

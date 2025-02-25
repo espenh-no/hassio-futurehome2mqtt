@@ -9,6 +9,8 @@ export CLIENT_ID=$(bashio::config 'client_id')
 export DEBUG=$(bashio::config 'debug')
 export SELECTED_DEVICES_MODE=$(bashio::config 'selected_devices_mode')
 export SELECTED_DEVICES=$(bashio::config 'selected_devices')
+export INCLUDE_MODE=$(bashio::config 'include_mode')
+export INCLUDE_SHORTCUTS=$(bashio::config 'include_shortcuts')
 export PYTHONUNBUFFERED=1
 
 echo Starting Futurehome FIMP to Home Assistant
