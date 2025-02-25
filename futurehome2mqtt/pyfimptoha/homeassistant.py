@@ -23,7 +23,9 @@ def create_components(
         mqtt: client,
         selected_devices_mode: str,
         selected_devices: list,
-        debug: bool
+        debug: bool,
+        include_mode: bool,
+        include_shortcuts: bool
 ):
     """
     Creates HA components out of FIMP devices
@@ -152,17 +154,23 @@ def create_components(
 
 
     # Mode select (home, away, sleep, vacation)
-    status = None
-    print('Creating mode select (dropdown). FIMP reported %s mode' % (mode))
-    status = mode_select.create(mqtt, mode)
-    if status:
-        statuses.append(status)
+    if include_mode == False:
+        print('Modes are not included in the configuration')
+    else:
+        status = None
+        print('Creating mode select (dropdown). FIMP reported %s mode' % (mode))
+        status = mode_select.create(mqtt, mode)
+        if status:
+            statuses.append(status)
 
 
     # Shortcuts (displayed as buttons)
-    print('Creating button devices for shortcuts. FIMP reported %s shortcuts' % (len(shortcuts)))
-    for shortcut in shortcuts:
-        shortcut_button.new_button(mqtt, shortcut, debug)
+    if include_shortcuts == False:
+        print('Shortcuts are not included in the configuration')
+    else:
+        print('Creating button devices for shortcuts. FIMP reported %s shortcuts' % (len(shortcuts)))
+        for shortcut in shortcuts:
+            shortcut_button.new_button(mqtt, shortcut, debug)
 
 
     mqtt.loop()

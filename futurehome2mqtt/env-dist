@@ -7,3 +7,5 @@ CLIENT_ID=fimp2mqtt
 DEBUG=False
 SELECTED_DEVICES_MODE="default" # default, include, exclude
 SELECTED_DEVICES=
+INCLUDE_MODE=True
+INCLUDE_SHORTCUTS=True

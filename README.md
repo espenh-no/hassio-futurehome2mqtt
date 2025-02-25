@@ -91,8 +91,15 @@ Settings -> Device & services -> add integration -> search for `MQTT` -> select 
 2. Install the addon 'Futurehome FIMP to MQTT'
    - Select `Futurehome FIMP integration` in the Add-on store -> install
 3. Configure the addon with the same parameters as before
-   - If you want to include or exclude certain devices, please specify with radio buttons, and then the devices in `selected_devices` with this format: \<adapter>\_\<address>. If you want to include all supported devices, leave radio button on `default`.
-     Devices without a room will be ignored.
+   - If you want to include or exclude certain devices, please specify with radio buttons, and then the devices in `selected_devices` with this format: \<adapter>\_\<address>. If you want to include all supported devices, leave radio button on `default`. Devices without a room will be ignored.
+      - `adapter` is `zw` for Z-Wave devices
+      - `adapter` is `zb` for Zigbee devices
+      - For other adapters the name of the adapter is used - e.g `sensibo`
+      - Examples:
+        - zw_22
+        - zb_47
+        - sensibo_abCDEFgE
+   - Toggle the switches to your desired likings for mode and shortcuts.
 4. Start it. Supported devices should appear in the Home Assistant UI
 
 # Development

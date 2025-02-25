@@ -1,7 +1,14 @@
+## 0.3.8
+
+- Added option to select if you want to include or exclude mode & shortcuts
+- Updated README
+  - Expample for `selected_devices_mode`
+- Updated repository.json to current maintainer
+
 ## 0.3.7
 
 - Updated README
-- Changed `selected_devices_mode` defualt option from 'ignored' to 'default' to include all supported devices.
+- Changed `selected_devices_mode` default option from 'ignored' to 'default' to include all supported devices.
 
 ## 0.3.6
 
