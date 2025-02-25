@@ -3,7 +3,7 @@
     "version": "0.3.8",
     "slug": "futurehome_fimp",
     "description": "Futurehome FIMP integration",
-    "url": "https://github.com/runelangseid/hassio-futurehome2mqtt",
+    "url": "https://github.com/espenh-no/hassio-futurehome2mqtt",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
     "boot": "auto",
     "init": false,

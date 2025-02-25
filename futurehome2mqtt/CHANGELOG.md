@@ -3,7 +3,7 @@
 - Added option to select if you want to include or exclude mode & shortcuts
 - Updated README
   - Expample for `selected_devices_mode`
-- Updated repository.json to current maintainer
+- Updated repository.json & config.json to current maintainer
 
 ## 0.3.7
 
